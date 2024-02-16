@@ -148,3 +148,43 @@ deleteButton.addEventListener('click', () => {
     calculator.delete();
     calculator.updateDisplay();
 })
+
+document.addEventListener('keyup', (ev) => {
+    let event = parseFloat(ev.key);
+    if (event >= 0 || event <= 9) {
+        calculator.appendNumber(event);
+        calculator.updateDisplay();
+    }
+    switch (ev.key) {
+        case '.':
+            calculator.appendNumber(ev.key);
+            calculator.updateDisplay();
+            break;
+        case '/':
+            calculator.chooseOperation(ev.key);
+            calculator.updateDisplay();
+            break;
+        case '+':
+            calculator.chooseOperation(ev.key);
+            calculator.updateDisplay();
+            break;
+        case '-':
+            calculator.chooseOperation(ev.key);
+            calculator.updateDisplay();
+            break;
+        case '*':
+            calculator.chooseOperation(ev.key);
+            calculator.updateDisplay();
+            break;
+        case 'Enter':
+            calculator.compute();
+            calculator.updateDisplay();
+            break;
+        case 'Backspace':
+            calculator.delete();
+            calculator.updateDisplay();
+            break;
+        default:
+            return;
+    }
+})
